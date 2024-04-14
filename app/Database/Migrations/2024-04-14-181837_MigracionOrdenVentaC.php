@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class MigracionPlantillasCampos extends Migration
+class MigracionOrdenVentaC extends Migration
 {
     public function up()
     {
@@ -15,35 +15,45 @@ class MigracionPlantillasCampos extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'Nombre' => [
+            'Cantidad' => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
+            'Unidad' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
-            'Tipo' => [
+            'Observaciones' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
-            'ID_plantilla' => [
+            'Precio_unitario' => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
+            'ID_orden_venta' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'Conceptos' => [
-                'type'       => 'TEXT', // Tipo de dato TEXT para almacenar arreglos serializados
-                'null'       => true, // Permitir valores nulos si es necesario
+            'ID_articulo' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
             ],
         ]);
 
         // Definición de la clave primaria
         $this->forge->addPrimaryKey('ID');
 
-        $this->forge->addForeignKey('ID_plantilla', 'plantillas', 'ID');
+        $this->forge->addForeignKey('ID_orden_venta', 'orden_venta', 'ID');
+        $this->forge->addForeignKey('ID_articulo', 'articulo', 'ID');
 
-        $this->forge->createTable('plantillas_campos');
+        $this->forge->createTable('orden_venta_conceptos');
     }
 
     public function down()
     {
-        $this->forge->dropTable('plantillas_campos');
+        $this->forge->dropTable('orden_venta_conceptos');
     }
 }

@@ -29,6 +29,33 @@
                 <label for="id_cliente">ID_cliente</label>
                 <input type="number" name="id_cliente" id="id_cliente" class="form-control">
                 <br>
+                <div class="form-group">
+        <label for="conceptos">Conceptos</label>
+        <table class="table table-striped table-bordered" name="conceptos" id="tablaConceptos">
+            <thead>
+                <tr>
+                    <th>Cantidad</th>
+                    <th>Unidad</th>
+                    <th>Observaciones</th>
+                    <th>PrecioU</th>
+                    <th>ID_articulo</th>
+                    <th>Eliminar</th>
+                    <th>Agregar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="number" name="conceptos[0][cantidad]" class="form-control"></td>
+                    <td><input type="text" name="conceptos[0][unidad]" class="form-control"></td>
+                    <td><input type="text" name="conceptos[0][observaciones]" class="form-control"></td>
+                    <td><input type="number" name="conceptos[0][precio_unitario]" class="form-control"></td>
+                    <td><input type="number" name="conceptos[0][id_articulo]" class="form-control"></td>
+                    <td><button type="button" class="btn btn-danger" onclick="eliminarFila(this)">Eliminar</button></td>
+                    <td><button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Campo</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
                 <button class="btn btn-primary">Guardar</button> 
                 </form>
             </div>
@@ -100,6 +127,27 @@
             swal(':(','Fallo al eliminar','error');
         }
     </script>
+    <script>
+    function agregarFila() {
+        var table = document.getElementById("tablaConceptos");
+        var newRow = table.insertRow();
+        var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+        var cell3 = newRow.insertCell(2);
+        cell1.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][cantidad]" class="form-control">';
+        cell2.innerHTML = '<input type="text" name="conceptos[' + table.rows.length + '][unidad]" class="form-control">';
+        cell2.innerHTML = '<input type="text" name="conceptos[' + table.rows.length + '][observaciones]" class="form-control">';
+        cell2.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][precio_unitario]" class="form-control">';
+        cell2.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][id_articulo]" class="form-control">';
+        cell3.innerHTML = '<button type="button" class="btn btn-danger" onclick="eliminarFila(this)">Eliminar</button>';
+        cell4.innerHTML = '<button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Campo</button>'
+    }
+
+    function eliminarFila(button) {
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
 
   </body>
 </html>

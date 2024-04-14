@@ -20,6 +20,12 @@ use CodeIgniter\Model;
             $info->insert($datos);
             return $this->db->insertID();
         }
+
+        public function insertarOVC($datos){
+            // Insertar los nuevos registros en plantillas_campos asociados a la plantilla
+            $this->db->table('orden_venta_conceptos')->insert($datos);
+        }
+
         public function obtenerDatos($data){
             $info = $this ->db->table('orden_venta');
             $info->where($data);
