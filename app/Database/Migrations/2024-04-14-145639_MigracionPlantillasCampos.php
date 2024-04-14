@@ -28,10 +28,6 @@ class MigracionPlantillasCampos extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'Conceptos' => [
-                'type'       => 'TEXT', // Tipo de dato TEXT para almacenar arreglos serializados
-                'null'       => true, // Permitir valores nulos si es necesario
-            ],
         ]);
 
         // Definición de la clave primaria

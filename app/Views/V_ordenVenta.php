@@ -134,13 +134,17 @@
         var cell1 = newRow.insertCell(0);
         var cell2 = newRow.insertCell(1);
         var cell3 = newRow.insertCell(2);
+        var cell4 = newRow.insertCell(3);
+        var cell5 = newRow.insertCell(4);
+        var cell6 = newRow.insertCell(5);
+        var cell7 = newRow.insertCell(6);
         cell1.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][cantidad]" class="form-control">';
         cell2.innerHTML = '<input type="text" name="conceptos[' + table.rows.length + '][unidad]" class="form-control">';
-        cell2.innerHTML = '<input type="text" name="conceptos[' + table.rows.length + '][observaciones]" class="form-control">';
-        cell2.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][precio_unitario]" class="form-control">';
-        cell2.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][id_articulo]" class="form-control">';
-        cell3.innerHTML = '<button type="button" class="btn btn-danger" onclick="eliminarFila(this)">Eliminar</button>';
-        cell4.innerHTML = '<button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Campo</button>'
+        cell3.innerHTML = '<input type="text" name="conceptos[' + table.rows.length + '][observaciones]" class="form-control">';
+        cell4.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][precio_unitario]" class="form-control">';
+        cell5.innerHTML = '<input type="number" name="conceptos[' + table.rows.length + '][id_articulo]" class="form-control">';
+        cell6.innerHTML = '<button type="button" class="btn btn-danger" onclick="eliminarFila(this)">Eliminar</button>';
+        cell7.innerHTML = '<button type="button" class="btn btn-success" onclick="agregarFila()">Agregar Campo</button>'
     }
 
     function eliminarFila(button) {

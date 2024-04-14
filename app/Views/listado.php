@@ -102,6 +102,7 @@
         var cell1 = newRow.insertCell(0);
         var cell2 = newRow.insertCell(1);
         var cell3 = newRow.insertCell(2);
+        var cell4 = newRow.insertCell(3);
         cell1.innerHTML = '<input type="text" name="campos[' + table.rows.length + '][nombrec]" class="form-control">';
         cell2.innerHTML = '<input type="text" name="campos[' + table.rows.length + '][tipo]" class="form-control">';
         cell3.innerHTML = '<button type="button" class="btn btn-danger" onclick="eliminarFila(this)">Eliminar</button>';
